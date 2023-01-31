@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITodo } from 'src/app/models/ITodo';
+import { ITodo } from 'src/app/interfaces/ITodo';
 
 @Component({
   selector: 'app-todos',
@@ -9,21 +9,40 @@ import { ITodo } from 'src/app/models/ITodo';
 
 export class TodosComponent implements OnInit {
 
-  todo: ITodo[] = [];
-  
-  constructor() { }
+  todos!: ITodo[];
 
+  inputTodo: string = '';
+  
   ngOnInit(): void {
-    this.todo = [
+    this.todos = [
       {
         content: 'first todo',
         completed: false
       },
       {
         content: 'second todo',
-        completed: true
+        completed: false
       }
     ]
   }
 
+  toggleDone (id: number) {
+    this.todos.map(( v, i) => {
+      if ( i == id) v.completed = !v.completed;
+      return v;
+    })
+  }
+
+  deleteTodo (id: number) {
+  this.todos = this.todos.filter(( v, i) => i !== id);
+  }
+
+  addTodo () {
+  this.todos.push({
+    content: this.inputTodo,
+    completed: false
+  });
+
+  this.inputTodo = ''
+  }
 }
