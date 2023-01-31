@@ -1,4 +1,12 @@
-# FirstAngularApp
+# Angular todolist
+users can add things they would like to do and cross it off the list or remove it entirely when done.
+
+## Screenshot
+![image](https://user-images.githubusercontent.com/71462708/215859082-ffdd64a7-6c6a-4671-a1f5-5587b29affd9.png)
+
+### Deployment
+
+[Site](http://localhost:4200/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
